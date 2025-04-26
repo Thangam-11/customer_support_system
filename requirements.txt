@@ -4,3 +4,6 @@ uvicorn
 langchain-community
 openai
 python-dotenv
+langchain_astradb
+
+-e .
