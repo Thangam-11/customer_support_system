@@ -1,1 +1,4 @@
-. env
+env
+venv
+.env
+e_commerce_bot.egg-info
