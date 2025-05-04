@@ -5,6 +5,14 @@ Author: sunny
 Author-email: snshrivas3365@gmail.com
 Requires-Dist: langchain-astradb
 Requires-Dist: langchain
+Requires-Dist: pandas
+Requires-Dist: langchain-google-genai
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: python-multipart
+Requires-Dist: jinja2
+Requires-Dist: python-dotenv
+Requires-Dist: langchain-core
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
