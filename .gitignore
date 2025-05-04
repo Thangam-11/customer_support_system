@@ -1,4 +1,5 @@
-env
+# Byte-compiled / optimized / DLL files
 venv
 .env
 e_commerce_bot.egg-info
+.env
