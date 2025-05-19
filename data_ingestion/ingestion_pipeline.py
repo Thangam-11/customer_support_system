@@ -6,6 +6,9 @@ from langchain_core.documents import Document
 from langchain_astradb import AstraDBVectorStore
 from utils.model_loader import ModelLoader
 from config.config_loader import load_config
+import os
+from dotenv import load_dotenv
+load_dotenv()  # Ensure env vars are loaded before anything else
 
 class DataIngestion:
     """
@@ -29,13 +32,13 @@ class DataIngestion:
         """
         load_dotenv()
         
-        required_vars = ["GOOGLE_API_KEY", "ASTRA_DB_API_ENDPOINT", "ASTRA_DB_APPLICATION_TOKEN", "ASTRA_DB_KEYSPACE"]
+        required_vars = ["OPENAI_API_KEY", "ASTRA_DB_API_ENDPOINT", "ASTRA_DB_APPLICATION_TOKEN", "ASTRA_DB_KEYSPACE"]
         
         missing_vars = [var for var in required_vars if os.getenv(var) is None]
         if missing_vars:
             raise EnvironmentError(f"Missing environment variables: {missing_vars}")
         
-        self.google_api_key = os.getenv("GOOGLE_API_KEY")
+        self.openai_api_key = os.getenv("OPENAI_API_KEY")
         self.db_api_endpoint = os.getenv("ASTRA_DB_API_ENDPOINT")
         self.db_application_token = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
         self.db_keyspace = os.getenv("ASTRA_DB_KEYSPACE")
