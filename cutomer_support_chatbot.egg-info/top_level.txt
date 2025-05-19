@@ -1,6 +1,7 @@
 config
 data_collection_pipeline
 data_ingestion
+exceptions
 prompt_library
 retriever
 utils

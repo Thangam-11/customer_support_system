@@ -8,3 +8,4 @@ jinja2
 python-dotenv
 langchain
 langchain_core
+langchain-openai
