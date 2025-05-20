@@ -2,8 +2,8 @@ astra_db:
   collection_name: "ecommercedata"
 
 embedding_model:
-  provider: "google"
-  model_name: "models/text-embedding-004"   # or use OpenAI embedding if needed
+  provider: "openai"
+  model_name: "text-embedding-ada-002"   # or use OpenAI embedding if needed
 
 retriever:
   top_k: 10

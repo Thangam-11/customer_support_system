@@ -1,22 +1,25 @@
-import os
 import sys
 
 class CustomerSupportBotException(Exception):
-    def __init__(self,error_message,error_details:sys):
+    def __init__(self, error_message: str, error_detail: Exception):
         self.error_message = error_message
-        _,_,exc_tb = error_details.exc_info()
-        
-        self.lineno=exc_tb.tb_lineno
-        self.file_name=exc_tb.tb_frame.f_code.co_filename 
-    
+        _, _, exc_tb = sys.exc_info()
+        self.lineno = exc_tb.tb_lineno if exc_tb else None
+        self.file_name = exc_tb.tb_frame.f_code.co_filename if exc_tb else "Unknown"
+        self.original_exception = error_detail
+
     def __str__(self):
-        return "Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(
-        self.file_name, self.lineno, str(self.error_message))
-        
-        
+        return (
+            f"Error occurred in python script [{self.file_name}] "
+            f"line [{self.lineno}] "
+            f"error message [{self.error_message}] "
+            f"original error: [{self.original_exception}]"
+        )
+
+
+# ✅ Test usage (outside the class)
 if __name__ == '__main__':
     try:
-        a=1/0
-        print("This will not be printed",a)
+        raise ValueError("An example error")
     except Exception as e:
-        raise CustomerSupportBotException(e,sys)
+        raise CustomerSupportBotException(e)
