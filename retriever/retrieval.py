@@ -35,6 +35,9 @@ class Retriever:
             raise CustomerSupportBotException(f"Error loading environment variables: {e}")
 
     def load_retriever(self):
+        """
+        Load the retriever from the AstraDB vector store.
+        """
         try:
             if not self.vstore:
                 collection_name = self.config["astra_db"]["collection_name"]
@@ -45,13 +48,16 @@ class Retriever:
                     api_endpoint=self.db_api_endpoint,
                     token=self.db_application_token,
                     namespace=self.db_keyspace,
+                    create_collection=False  # ✅ Prevents error if collection exists
                 )
 
             if not self.retriever:
                 top_k = self.config.get("retriever", {}).get("top_k", 3)
                 self.retriever = self.vstore.as_retriever(search_kwargs={"k": top_k})
                 print("Retriever loaded successfully.")
+
             return self.retriever
+
         except Exception as e:
             raise CustomerSupportBotException(f"Error loading retriever: {e}")
 
