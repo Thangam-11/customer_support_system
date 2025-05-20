@@ -17,7 +17,7 @@ class Retriever:
             self.vstore = None
             self.retriever = None
         except Exception as e:
-            raise CustomerSupportBotException(f"Error during Retriever initialization: {e}")
+            raise CustomerSupportBotException(f"Error during Retriever initialization", e)
 
     def _load_env_variables(self):
         try:
@@ -32,12 +32,9 @@ class Retriever:
             self.db_application_token = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
             self.db_keyspace = os.getenv("ASTRA_DB_KEYSPACE")
         except Exception as e:
-            raise CustomerSupportBotException(f"Error loading environment variables: {e}")
+            raise CustomerSupportBotException(f"Error loading environment variables", e)
 
     def load_retriever(self):
-        """
-        Load the retriever from the AstraDB vector store.
-        """
         try:
             if not self.vstore:
                 collection_name = self.config["astra_db"]["collection_name"]
@@ -48,7 +45,7 @@ class Retriever:
                     api_endpoint=self.db_api_endpoint,
                     token=self.db_application_token,
                     namespace=self.db_keyspace,
-                    create_collection=False  # ✅ Prevents error if collection exists
+                    # Removed create_collection param because it's invalid
                 )
 
             if not self.retriever:
@@ -59,7 +56,8 @@ class Retriever:
             return self.retriever
 
         except Exception as e:
-            raise CustomerSupportBotException(f"Error loading retriever: {e}")
+            # Pass both args to your custom exception, as required
+            raise CustomerSupportBotException("Error loading retriever", e)
 
     def call_retriever(self, query: str) -> List[Document]:
         try:
@@ -67,7 +65,7 @@ class Retriever:
             output = retriever.invoke(query)
             return output
         except Exception as e:
-            raise CustomerSupportBotException(f"Error retrieving results for query '{query}': {e}")
+            raise CustomerSupportBotException(f"Error retrieving results for query '{query}'", e)
 
 
 if __name__ == '__main__':

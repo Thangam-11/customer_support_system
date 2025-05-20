@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from config.config_loader import load_config
+from exceptions.exception import CustomerSupportBotException
+
 
 class ModelLoader:
     """
