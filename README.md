@@ -18,6 +18,9 @@ An AI-powered e-commerce customer support system built with FastAPI, LangChain, 
 
 <img width="7010" height="3405" alt="image" src="https://github.com/user-attachments/assets/50df2657-15f7-47a5-9bab-727c4979c6ed" />
 
+
+# Deployment Architecture (AWS + Docker)
+
 <img width="5356" height="1537" alt="image" src="https://github.com/user-attachments/assets/3b6518bd-3721-493f-9a00-78b9f57cc195" />
 
 
