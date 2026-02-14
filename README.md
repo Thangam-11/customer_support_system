@@ -12,55 +12,9 @@ An AI-powered e-commerce customer support system built with FastAPI, LangChain, 
 - **CI/CD Pipeline**: Automated deployment to AWS ECR via GitHub Actions
 
 ## 🏗️ Architecture
-flowchart TB
+<img width="3593" height="5160" alt="image" src="https://github.com/user-attachments/assets/8af8891d-35a6-4b05-ad68-f42595a1ce71" />
 
-    %% Frontend Layer
-    subgraph Frontend Layer
-        UI[Web Chat Interface<br/>HTML + JS + Jinja2<br/>Port 8000]
-    end
-
-    %% API Layer
-    subgraph API Gateway Layer
-        API[FastAPI Server<br/>REST Endpoint /get<br/>Async Processing]
-    end
-
-    %% RAG Processing Layer
-    subgraph RAG Processing Layer
-        EMB[Query Embedding<br/>OpenAI text-embedding-3-large]
-        RET[Retriever<br/>Top-K Similarity Search]
-        PROMPT[Prompt Template Engine<br/>Context Injection]
-        LLM[LLM Response Generator<br/>GPT Model]
-    end
-
-    %% Vector Storage Layer
-    subgraph Vector Database Layer
-        ASTRA[(AstraDB<br/>Vector Store<br/>Cosine Similarity)]
-    end
-
-    %% Data Ingestion Layer
-    subgraph Data Ingestion Pipeline
-        CSV[Product Review CSV]
-        CHUNK[Text Chunking<br/>500 tokens + Overlap]
-        EMB2[Batch Embedding Generation]
-        STORE[Store Vectors in AstraDB]
-    end
-
-    %% Flow Connections
-    UI -->|User Query| API
-    API --> EMB
-    EMB --> RET
-    RET --> ASTRA
-    ASTRA --> RET
-    RET --> PROMPT
-    PROMPT --> LLM
-    LLM --> API
-    API -->|JSON Response| UI
-
-    CSV --> CHUNK
-    CHUNK --> EMB2
-    EMB2 --> STORE
-    STORE --> ASTRA
-
+ 
 ```
 ├── data_ingestion/          # Data processing and vector store ingestion
 ├── retriever/               # Document retrieval from vector database
