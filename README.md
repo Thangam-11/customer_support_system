@@ -11,10 +11,12 @@ An AI-powered e-commerce customer support system built with FastAPI, LangChain, 
 - **Scalable Architecture**: Containerized deployment with Docker
 - **CI/CD Pipeline**: Automated deployment to AWS ECR via GitHub Actions
 
-## 🏗️ Architecture
+## 🏗️ Customer Support RAG – System Architecture Diagram
+
 <img width="3593" height="5160" alt="image" src="https://github.com/user-attachments/assets/8af8891d-35a6-4b05-ad68-f42595a1ce71" />
 
- 
+
+ # Sequence System Architecture Diagram
 
 <img width="7010" height="3405" alt="image" src="https://github.com/user-attachments/assets/50df2657-15f7-47a5-9bab-727c4979c6ed" />
 
