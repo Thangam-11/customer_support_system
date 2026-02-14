@@ -15,17 +15,9 @@ An AI-powered e-commerce customer support system built with FastAPI, LangChain, 
 <img width="3593" height="5160" alt="image" src="https://github.com/user-attachments/assets/8af8891d-35a6-4b05-ad68-f42595a1ce71" />
 
  
-```
-├── data_ingestion/          # Data processing and vector store ingestion
-├── retriever/               # Document retrieval from vector database
-├── prompt_library/          # LLM prompt templates
-├── utils/                   # Utility functions and model loaders
-├── config/                  # Configuration management
-├── exceptions/              # Custom exception handling
-├── templates/               # HTML templates for web interface
-├── static/                  # Static assets (CSS, JS)
-└── main.py                  # FastAPI application entry point
-```
+
+```<img width="7010" height="3405" alt="image" src="https://github.com/user-attachments/assets/50df2657-15f7-47a5-9bab-727c4979c6ed" />
+
 
 ## 🛠️ Tech Stack
 
