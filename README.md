@@ -50,7 +50,7 @@ An AI-powered e-commerce customer support system built with FastAPI, LangChain, 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Thangam-11/customer_support_system>
    cd customer-support-chatbot
    ```
 
